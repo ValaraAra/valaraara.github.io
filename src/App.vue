@@ -6,7 +6,7 @@ import TheWelcome from './components/TheWelcome.vue'
 <template>
 	<header class="flex place-items-center">
 		<img alt="Vue logo" class="" src="./assets/logo.svg" width="100" height="100" />
-		<HelloWorld msg="Hello World!" />
+		<HelloWorld msg="Hello World 2.0!" />
 	</header>
 
 	<main class="mb-auto flex flex-col gap-4 mt-8">
