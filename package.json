@@ -11,16 +11,21 @@
 		"lintfix": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore"
 	},
 	"dependencies": {
+		"@primevue/themes": "^4.0.5",
 		"pinia": "^2.1.7",
+		"primevue": "^4.0.5",
 		"vue": "^3.4.29"
 	},
 	"devDependencies": {
+		"@primevue/auto-import-resolver": "^4.0.5",
 		"@vitejs/plugin-vue": "^5.0.5",
 		"autoprefixer": "^10.4.20",
 		"eslint": "^8.57.0",
 		"eslint-plugin-vue": "^9.23.0",
 		"postcss": "^8.4.41",
 		"tailwindcss": "^3.4.10",
+		"tailwindcss-primeui": "^0.3.4",
+		"unplugin-vue-components": "^0.27.4",
 		"vite": "^5.3.1"
 	},
 	"packageManager": "pnpm@9.7.1+sha512.faf344af2d6ca65c4c5c8c2224ea77a81a5e8859cbc4e06b1511ddce2f0151512431dd19e6aff31f2c6a8f5f2aced9bd2273e1fed7dd4de1868984059d2c4247"
