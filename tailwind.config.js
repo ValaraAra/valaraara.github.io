@@ -9,7 +9,6 @@ export default {
 	theme: {
 		extend: {},
 	},
-	darkMode: 'selector',
 	plugins: [
 		require('tailwindcss-primeui'),
 		plugin(function({ addVariant }) {

@@ -1,19 +1,19 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+import AppFooter from './components/AppFooter.vue';
+import AppNavbar from './components/AppNavbar.vue';
+import ContactMe from './components/ContactMe.vue';
+import ProfileCard from './components/ProfileCard.vue';
+import ProjectGrid from './components/ProjectGrid.vue';
 </script>
 
 <template>
-	<header class="flex place-items-center">
-		<img alt="Vue logo" class="" src="./assets/logo.svg" width="100" height="100" />
-		<HelloWorld msg="Hello World 2.0!" />
-	</header>
+	<AppNavbar />
 
-	<main class="mb-auto flex flex-col gap-4 mt-8">
-		<TheWelcome />
+	<main class="mb-auto flex flex-col place-items-center gap-16 my-8 w-full">
+		<ProfileCard />
+		<ProjectGrid />
+		<ContactMe />
 	</main>
 
-	<footer>
-		<p class="text-center">Made by <span class="font-bold text-purple-600">Valara</span></p>
-	</footer>
+	<AppFooter />
 </template>

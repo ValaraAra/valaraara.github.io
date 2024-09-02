@@ -1,4 +1,5 @@
 import './assets/main.css'
+import 'primeicons/primeicons.css'
 
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
@@ -20,7 +21,6 @@ app.use(PrimeVue, {
                 name: 'primevue',
                 order: 'tailwind-base, primevue, tailwind-utilities',
             },
-			darkModeSelector: '.dark',
 		}
 	},
 })
