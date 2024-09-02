@@ -5,7 +5,7 @@ import IconTextLink from './IconTextLink.vue';
 </script>
 
 <template>
-	<div class="flex gap-8 justify-start mt-12 w-full">
+	<div class="flex flex-col items-center md:flex-row gap-8 justify-start mt-12 w-full">
 		<Avatar class="border-4 border-primary size-32" image="https://gravatar.com/avatar/32f1707bf470bc71a1dee6f60ee5cf96?size=256" shape="circle" size="xlarge" />
 		<div class="flex flex-col gap-5 max-w-[30rem] text-left">
 			<p class="text-3xl text-surface-400">

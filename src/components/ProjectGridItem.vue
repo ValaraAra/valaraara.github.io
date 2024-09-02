@@ -14,8 +14,8 @@ const props = defineProps({
 		</div>
 
 		<div class="flex flex-col gap-4 p-4 w-full text-left">
-			<h1 class="text-2xl font-semibold text-surface-300">{{ props.project.title }}</h1>
-			<p class="text-surface-400 text-lg">
+			<h1 class="text-2xl font-semibold text-surface-300 line-clamp-1">{{ props.project.title }}</h1>
+			<p class="text-surface-400 md:text-lg line-clamp-6 md:line-clamp-5">
 				{{ props.project.text }}
 			</p>
 		</div>
