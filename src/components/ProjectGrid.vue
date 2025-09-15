@@ -5,22 +5,22 @@ const projects = [
 	{
 		image: '/images/character-manager-gallery.png',
 		title: 'Character Manager',
-		text: 'A desktop app that allows users to randomly generate, create, edit, and manage their characters. My client wanted it made to simplify the process of creating and managing characters for their writing.',
+		text: 'A cross-platform desktop app for writers to create, edit, and organize characters, featuring random generation and streamlined management tools. Built with Electron, Vue.js, and SQLite.',
+	},
+	{
+		image: '/images/warframe-market.png',
+		title: 'Warframe Deals',
+		text: 'A real-time web app that tracks the Warframe Market API to identify profitable deals, providing search, filtering, and live updates backed by a custom data processing pipeline. Built with Node.js, Next.js, Tailwind CSS, and MongoDB.',
 	},
 	{
 		image: '/images/onyxia.png',
 		title: 'Onyxia Bot',
-		text: 'An in-depth Discord pet bot themed around World of Warfraft. Allows users to search for and capture a wide variety of pets from the game. Also features usable items, reward crates, it\'s own currency system, daily quests, and much more.',
+		text: 'A Discord pet collection bot with persistent user profiles, pets, inventories, items, currencies, and daily quests, built for an engaging, game-like user experience. Built with Node.js, Discord.js, and MongoDB.',
 	},
 	{
 		image: '/images/discord-toolbox.png',
 		title: 'Discord Toolbox',
-		text: 'Congregated several useful tools for advanced Discord users. The primary tool was the guild gallery, which allowed users to view and filter through all of their servers in one place with in-depth information about each, notably emotes.',
-	},
-	{
-		image: '/images/warframe-market.png',
-		title: 'Warframe Market Tool',
-		text: 'A website allowing users to filter and search through up-to-date deals currently on the Warframe Market. It uses the Warframe Market API to maintain up-to-date data and constantly monitor for new, high-quality, deals on the backend.',
+		text: 'A web app offering advanced utilities for Discord users, including a gallery that let users browse and filter servers with detailed info such as emotes and user statistics. Built with Next.js, Tailwind CSS, and NextAuth.',
 	},
 ]
 
