@@ -5,7 +5,7 @@ const projects = [
 	{
 		image: '/images/character-manager-gallery.png',
 		title: 'Character Manager',
-		text: 'A desktop app that allows users to randomly generate, create, edit, and manage their characters. My client wanted it made to simplify the process of creating and editing characters for their DnD campaigns.',
+		text: 'A desktop app that allows users to randomly generate, create, edit, and manage their characters. My client wanted it made to simplify the process of creating and managing characters for their writing.',
 	},
 	{
 		image: '/images/onyxia.png',

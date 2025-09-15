@@ -13,7 +13,7 @@ import IconTextLink from './IconTextLink.vue';
 				I create websites, desktop apps, and tools.
 			</p>
 			<div class="flex gap-6 justify-between">
-				<IconTextLink icon="pi-twitter text-surface-900 dark:text-surface-400" text="Twitter" href="https://x.com/ValaraAra" />
+				<IconTextLink icon="pi-envelope text-surface-900 dark:text-surface-400" text="Email" href="mailto:kochaub@oregonstate.edu" />
 				<IconTextLink icon="pi-linkedin text-blue-600" text="LinkedIn" href="https://www.linkedin.com/in/aubreykoch/" />
 				<IconTextLink icon="pi-github text-surface-900 dark:text-surface-0" text="Github" href="https://github.com/valaraara" />
 			</div>
