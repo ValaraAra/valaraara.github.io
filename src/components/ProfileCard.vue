@@ -10,7 +10,7 @@ import IconTextLink from './IconTextLink.vue';
 		<div class="flex flex-col gap-5 max-w-[30rem] text-left">
 			<p class="text-3xl dark:text-surface-400">
 				<h1 class="inline-block font-semibold dark:text-surface-200">Hey, I'm Aubrey.</h1>
-				I create websites, desktop apps, and tools.
+				I create websites, desktop apps, and more.
 			</p>
 			<div class="flex gap-6 justify-between">
 				<IconTextLink icon="pi-envelope text-surface-900 dark:text-surface-400" text="Email" href="mailto:contact@aubreykoch.com" />

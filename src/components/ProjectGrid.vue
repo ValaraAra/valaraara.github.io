@@ -5,22 +5,26 @@ const projects = [
 	{
 		image: '/images/character-manager-gallery.png',
 		title: 'Character Manager',
-		text: 'A cross-platform desktop app for writers to create, edit, and organize characters, featuring random generation and streamlined management tools. Built with Electron, Vue.js, and SQLite.',
+		text: 'Cross-platform desktop app for writers to create, edit, and manage characters. Features in-depth character generation and streamlined management tools.',
+		chips: ['Electron', 'Vue', 'SQLite'],
 	},
 	{
 		image: '/images/warframe-market.png',
 		title: 'Warframe Deals',
-		text: 'A real-time web app that tracks the Warframe Market API to identify profitable deals, providing search, filtering, and live updates backed by a custom data processing pipeline. Built with Node.js, Next.js, Tailwind CSS, and MongoDB.',
+		text: 'Tracks the Warframe Market API to find profitable deals. Provides real-time updates with search and filtering backed by a custom data processing pipeline.',
+		chips: ['Node', 'Next', 'Tailwind', 'MongoDB'],
 	},
 	{
 		image: '/images/onyxia.png',
 		title: 'Onyxia Bot',
-		text: 'A Discord pet collection bot with persistent user profiles, pets, inventories, items, currencies, and daily quests, built for an engaging, game-like user experience. Built with Node.js, Discord.js, and MongoDB.',
+		text: 'Discord pet collection bot with persistent user profiles, achievements, daily quests, and more. Built for an engaging, game-like user experience.',
+		chips: ['Node', 'DiscordJS', 'MongoDB'],
 	},
 	{
 		image: '/images/discord-toolbox.png',
 		title: 'Discord Toolbox',
-		text: 'A web app offering advanced utilities for Discord users, including a gallery that let users browse and filter servers with detailed info such as emotes and user statistics. Built with Next.js, Tailwind CSS, and NextAuth.',
+		text: 'Web app offering advanced utilities for Discord users. Featured OAuth login, in-depth server stats, Discord API status monitoring, and several tools.',
+		chips: ['Next', 'Tailwind', 'NextAuth'],
 	},
 ]
 
