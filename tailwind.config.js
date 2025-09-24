@@ -2,6 +2,7 @@ const plugin = require('tailwindcss/plugin');
 
 /** @type {import('tailwindcss').Config} */
 export default {
+	darkMode: 'selector',
 	content: [
 		'./index.html',
 		'./src/**/*.{vue,js,jsx,ts,tsx}',
@@ -11,9 +12,6 @@ export default {
 	},
 	plugins: [
 		require('tailwindcss-primeui'),
-		plugin(function({ addVariant }) {
-			addVariant('light', 'html:not(.dark) &')
-		})
 	],
 }
 

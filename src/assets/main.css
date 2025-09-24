@@ -2,6 +2,16 @@
 
 @layer tailwind-base {
 	@tailwind base;
+
+	html {
+		scrollbar-width: thin;
+		scrollbar-color: #2e2449 transparent;
+	}
+
+	*::-webkit-scrollbar {
+		width: 10px;
+		height: 10px;
+	}
 }
 
 @layer tailwind-utilities {
