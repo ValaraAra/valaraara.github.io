@@ -9,7 +9,7 @@ import IconTextLink from './IconTextLink.vue';
 		<Avatar class="border-4 border-primary size-32" image="https://gravatar.com/avatar/32f1707bf470bc71a1dee6f60ee5cf96?size=256" shape="circle" size="xlarge" />
 		<div class="flex flex-col gap-5 max-w-[30rem] text-left">
 			<p class="text-3xl dark:text-surface-400">
-				<h1 class="inline-block font-semibold dark:text-surface-200">Hey, I'm Aubrey.</h1>
+				<span class="inline-block font-semibold dark:text-surface-200">Hey, I'm Aubrey.</span>
 				I create websites, desktop apps, and more.
 			</p>
 			<div class="flex gap-6 justify-between">

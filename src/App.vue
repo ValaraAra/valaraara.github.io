@@ -1,9 +1,9 @@
 <script setup>
-import AppFooter from './components/AppFooter.vue';
-import AppNavbar from './components/AppNavbar.vue';
-import ContactMe from './components/ContactMe.vue';
-import ProfileCard from './components/ProfileCard.vue';
-import ProjectGrid from './components/ProjectGrid.vue';
+	import AppFooter from './components/AppFooter.vue';
+	import AppNavbar from './components/AppNavbar.vue';
+	import ContactMe from './components/ContactMe.vue';
+	import ProfileCard from './components/ProfileCard.vue';
+	import ProjectGrid from './components/ProjectGrid.vue';
 </script>
 
 <template>
