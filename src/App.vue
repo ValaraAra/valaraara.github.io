@@ -5,6 +5,7 @@
 	import ProfileCard from './components/ProfileCard.vue';
 	import ProjectGrid from './components/ProjectGrid.vue';
 	import Background from './components/Background.vue';
+	import EducationList from './components/EducationList.vue';
 </script>
 
 <template>
@@ -13,6 +14,7 @@
 
 	<main class="mb-auto flex flex-col place-items-center gap-16 my-8 w-full">
 		<ProfileCard />
+		<EducationList />
 		<ProjectGrid />
 		<ContactMe />
 	</main>
