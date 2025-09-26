@@ -40,15 +40,15 @@
 
 	.star {
 		position: absolute;
-		width: 2px;
-		height: 2px;
+		width: 4px;
+		height: 4px;
 		background: white;
-		border-radius: 50%;
+		clip-path: polygon(50% 0%, 60% 40%, 100% 50%, 60% 60%, 50% 100%, 40% 60%, 0% 50%, 40% 40%);
 		animation: twinkle infinite ease-in-out;
 	}
 
 	@keyframes twinkle {
 		0%, 100% { opacity: 0.3; transform: scale(1); }
-		50% { opacity: 1; transform: scale(1.2); }
+		50% { opacity: 1; transform: scale(1.3); }
 	}
 </style>
