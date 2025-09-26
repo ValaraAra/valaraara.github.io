@@ -5,7 +5,7 @@
 		{
 			image: '/images/oregon-state-university.png',
 			title: 'Oregon State University',
-			degree: 'Bachelor of Science in Computer Science',
+			degree: 'BS in Computer Science',
 			graduation: 'Expected Jun 2028',
 			bullets: [
 				'Cumulative GPA: 3.6/4.0',
@@ -28,7 +28,7 @@
 <template>
 	<div class="flex flex-col gap-6 w-full" id="education">
 		<h1 class="text-3xl font-semibold">Education</h1>
-		<div class="flex flex-col gap-6 rounded-lg border border-surface-800 w-full bg-surface-900 bg-opacity-70 overflow-hidden">
+		<div class="flex flex-col gap-6 p-3 rounded-lg border border-surface-800 w-full bg-surface-900 bg-opacity-70 overflow-hidden">
 			<EducationListItem v-for="(education, index) in educationList" :education="education" :key="education.title" />
 		</div>
 	</div>
