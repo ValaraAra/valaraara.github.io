@@ -9,7 +9,7 @@
 			graduation: 'Expected Jun 2028',
 			bullets: [
 				'Cumulative GPA: 3.6/4.0',
-				'Achieved a 4.0 in all CS courses taken so far',
+				'Achieved a 4.0 in all CS courses taken',
 			],
 		},
 		{
@@ -18,7 +18,7 @@
 			degree: 'Associate of Arts',
 			graduation: 'Graduated Mar 2020',
 			bullets: [
-				'Completed almost entirely during high school',
+				'Completed primarily during high school',
 				'Offered tutoring positions in the CS department',
 			],
 		},
