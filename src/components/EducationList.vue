@@ -8,7 +8,7 @@
 			degree: 'BS in Computer Science',
 			graduation: 'Expected Jun 2028',
 			bullets: [
-				'Cumulative GPA: 3.6/4.0',
+				'Cumulative 3.6 GPA',
 				'Achieved a 4.0 in all CS courses taken',
 			],
 		},
