@@ -10,7 +10,7 @@ const projects = [
 	},
 	{
 		image: '/images/warframe-market.png',
-		title: 'Warframe Market Tool',
+		title: 'Warframe Trading Tool',
 		text: 'Tracks the Warframe Market API to find profitable deals. Provides real-time updates with search and filtering backed by a custom data processing pipeline.',
 		chips: ['Node', 'Next', 'Tailwind', 'MongoDB'],
 	},
