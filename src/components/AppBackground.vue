@@ -1,14 +1,3 @@
-<template>
-	<div class="starry-background">
-		<div class="star" v-for="star in stars" :key="star.id" :style="{
-				left: star.left + '%',
-				top: star.top + '%',
-				animationDuration: star.duration + 's'
-			}"
-		></div>
-	</div>
-</template>
-	
 <script setup>
 	import { ref, onMounted } from 'vue'
 	
@@ -25,6 +14,17 @@
 		}
 	})
 </script>
+
+<template>
+	<div class="starry-background">
+		<div class="star" v-for="star in stars" :key="star.id" :style="{
+				left: star.left + '%',
+				top: star.top + '%',
+				animationDuration: star.duration + 's'
+			}"
+		></div>
+	</div>
+</template>
 
 <style scoped>
 	.starry-background {

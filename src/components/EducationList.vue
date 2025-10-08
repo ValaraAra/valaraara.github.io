@@ -29,7 +29,7 @@
 	<div class="flex flex-col gap-6 w-full" id="education">
 		<h1 class="text-3xl font-semibold">Education</h1>
 		<div class="flex flex-col gap-6 p-3 rounded-lg border border-surface-800 w-full bg-surface-900 bg-opacity-70 overflow-hidden">
-			<EducationListItem v-for="(education, index) in educationList" :education="education" :key="education.title" />
+			<EducationListItem v-for="(education) in educationList" :education="education" :key="education.title" />
 		</div>
 	</div>
 </template>
