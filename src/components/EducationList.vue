@@ -18,7 +18,7 @@
 			degree: 'Associate of Arts',
 			graduation: 'Graduated Mar 2020',
 			bullets: [
-				'Completed primarily during high school',
+				'Completed during high school',
 				'Offered tutoring positions in the CS department',
 			],
 		},

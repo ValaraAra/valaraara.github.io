@@ -3,28 +3,34 @@ import ProjectGridItem from './ProjectGridItem.vue';
 
 const projects = [
 	{
+		image: '/images/voxel-engine.png',
+		title: 'Voxel Engine',
+		text: 'Developing a voxel engine to learn OpenGL and deepen my understanding of C++ and engine architecture. Still early stages, but steady progress is being made.',
+		chips: ['C++', 'OpenGL', 'GLSL'],
+	},
+	{
+		image: '/images/to-do-cropped.png',
+		title: 'To-Do Web App',
+		text: 'To-do app with user accounts and syncing. Working with a team of 5 to develop several microservices, including OAuth login, file uploads, reminders, and more.',
+		chips: ['Node', 'Express', 'Vue', 'Tailwind', 'MongoDB' ],
+	},
+	{
 		image: '/images/character-manager-gallery.png',
 		title: 'Character Manager',
-		text: 'Cross-platform desktop app for writers to create, edit, and manage characters. Features in-depth character creation and management tools.',
-		chips: ['Electron', 'Vue', 'SQLite'],
+		text: 'Cross-platform desktop app for writers to create, edit, and manage characters. Includes in-depth character creation and management features.',
+		chips: ['Electron', 'Vue', 'Tailwind'],
 	},
 	{
 		image: '/images/warframe-market.png',
 		title: 'Warframe Trading Tool',
-		text: 'Tracks the Warframe Market API to find profitable deals. Provides real-time updates with search and filtering backed by a custom data processing pipeline.',
+		text: 'Tracked the Warframe Market API to find profitable trades. Offered real-time updates, search, and filtering supported by a custom data processing pipeline.',
 		chips: ['Node', 'Next', 'Tailwind', 'MongoDB'],
 	},
 	{
 		image: '/images/discord-toolbox.png',
 		title: 'Discord Toolbox',
-		text: 'Web app offering advanced utilities for Discord users. Featured OAuth login, in-depth server stats, Discord API status monitoring, and several tools.',
-		chips: ['Next', 'Tailwind', 'NextAuth'],
-	},
-	{
-		image: '/images/onyxia.png',
-		title: 'Onyxia Bot',
-		text: 'Discord pet collection bot with persistent user profiles, achievements, daily quests, and more. Built for an engaging, game-like user experience.',
-		chips: ['Node', 'DiscordJS', 'MongoDB'],
+		text: 'Web app that provided advanced tools for Discord users. Featured OAuth login, server analytics, Discord API status monitoring, and several utility tools.',
+		chips: ['Next', 'Tailwind'],
 	},
 ]
 
