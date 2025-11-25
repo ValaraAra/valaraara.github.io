@@ -10,8 +10,8 @@ const projects = [
 	},
 	{
 		image: '/images/to-do-cropped.png',
-		title: 'To-Do Web App',
-		text: 'To-do app with user accounts and syncing. Working with a team of 5 to develop several microservices, including OAuth login, file uploads, reminders, and more.',
+		title: 'Task Management',
+		text: 'Task management app with user accounts and syncing. Working with a team of 5 to develop several microservices, including OAuth login, file uploads, reminders, and more.',
 		chips: ['Node', 'Express', 'Vue', 'Tailwind', 'MongoDB' ],
 	},
 	{
