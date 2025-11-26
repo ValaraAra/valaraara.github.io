@@ -5,7 +5,7 @@ const projects = [
 	{
 		image: '/images/voxel-engine.png',
 		title: 'Voxel Engine',
-		text: 'Developing a voxel engine to learn OpenGL and deepen my understanding of C++ and engine architecture. Still early stages, but steady progress is being made.',
+		text: 'Developing a voxel engine to strengthen my skills with OpenGL, C++, and engine architecture. Includes a Blinn Phong lighting model, performant chunked world generation, and a custom pipeline for meshing, rendering, and resource management.',
 		chips: ['C++', 'OpenGL', 'GLSL'],
 	},
 	{
