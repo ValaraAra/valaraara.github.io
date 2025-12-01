@@ -9,8 +9,8 @@ import IconTextLink from './IconTextLink.vue';
 		<Avatar class="border-4 border-primary size-32" image="/images/profile.png" shape="circle" size="xlarge" aria-label="avatar image" />
 		<div class="flex flex-col gap-5 max-w-[30rem] text-left">
 			<p class="text-3xl text-surface-400">
-				<span class="inline-block font-semibold text-surface-200">Hey, I'm Aubrey.</span>
-				I create websites, desktop apps, and more.
+				<span class="inline-block font-semibold text-surface-200">Hey, I'm Aubrey!</span>
+				I work on game engines and web apps.
 			</p>
 			<div class="flex gap-6 justify-between">
 				<IconTextLink icon="pi-envelope text-surface-400" text="Email" href="mailto:contact@aubreykoch.com" />

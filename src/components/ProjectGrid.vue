@@ -7,6 +7,7 @@ const projects = [
 		title: 'Voxel Engine',
 		text: 'Developing a voxel engine to strengthen my skills with OpenGL, C++, and engine architecture. Includes a Blinn Phong lighting model, performant chunked world generation, and a custom pipeline for meshing, rendering, and resource management.',
 		chips: ['C++', 'OpenGL', 'GLSL'],
+		link: 'https://github.com/ValaraAra/Practice-Engine'
 	},
 	{
 		image: '/images/to-do-cropped.png',
