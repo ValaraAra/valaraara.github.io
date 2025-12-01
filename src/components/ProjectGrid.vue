@@ -2,17 +2,17 @@
 import ProjectGridItem from './ProjectGridItem.vue';
 
 const projects = [
-	{
-		image: '/images/voxel-engine.png',
-		title: 'Voxel Engine',
-		text: 'Developing a voxel engine to strengthen my skills with OpenGL, C++, and engine architecture. Includes a Blinn Phong lighting model, performant chunked world generation, and a custom pipeline for meshing, rendering, and resource management.',
-		chips: ['C++', 'OpenGL', 'GLSL'],
-		link: 'https://github.com/ValaraAra/Practice-Engine'
-	},
+	// {
+	// 	image: '/images/voxel-engine.png',
+	// 	title: 'Voxel Engine',
+	// 	text: 'In-progress voxel engine to strengthen my rendering and engine architecture skills. Includes multi-threaded chunked world generation, Blinn-Phong lighting, and a custom pipeline for meshing, rendering, and more.',
+	// 	chips: ['C++', 'OpenGL', 'GLSL'],
+	// 	link: 'https://github.com/ValaraAra/Practice-Engine'
+	// },
 	{
 		image: '/images/to-do-cropped.png',
 		title: 'Task Management',
-		text: 'Task management app with user accounts and syncing. Working with a team of 5 to develop several microservices, including OAuth login, file uploads, reminders, and more.',
+		text: 'Task management app with user accounts and syncing. Worked with a team of 5 to develop several microservices, including OAuth login, data syncing, reminders, and more.',
 		chips: ['Node', 'Express', 'Vue', 'Tailwind', 'MongoDB' ],
 	},
 	{
@@ -39,7 +39,7 @@ const projects = [
 
 <template>
 	<div class="flex flex-col gap-6" id="projects">
-		<h1 class="text-3xl font-semibold">Projects</h1>
+		<h1 class="text-3xl font-semibold">Past Projects</h1>
 		<div class="flex flex-col gap-6">
 			<ProjectGridItem v-for="(project) in projects" :project="project" :key="project.title" />
 		</div>
