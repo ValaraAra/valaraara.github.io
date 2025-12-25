@@ -15,7 +15,7 @@ const projects = [
 
 <template>
 	<div class="flex flex-col gap-6" id="experience">
-		<h1 class="text-3xl font-semibold">Work Experience</h1>
+		<h2 class="text-3xl font-semibold">Work Experience</h2>
 		<div class="flex flex-col gap-6">
 			<ProjectGridItem v-for="(project) in projects" :project="project" :key="project.title" />
 		</div>

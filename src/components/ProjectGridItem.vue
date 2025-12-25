@@ -14,10 +14,10 @@ const props = defineProps({
 		</div>
 
 		<div class="flex flex-col gap-4 p-3 w-full text-left">
-			<h1 class="text-2xl text-surface-300 font-semibold line-clamp-1">
+			<h3 class="text-2xl text-surface-300 font-semibold line-clamp-1">
 				<a v-if="props.project.link" class="hover:text-primary" :href="props.project.link">{{ props.project.title }}</a>
 				<span v-else>{{ props.project.title }}</span>
-			</h1>
+			</h3>
 			<div class="flex gap-2 flex-wrap">
 				<Chip v-for="(chip, index) in props.project.chips" :key="index" :label="chip" class="text-xs" />
 			</div>

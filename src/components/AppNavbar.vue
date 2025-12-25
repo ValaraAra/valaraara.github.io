@@ -4,7 +4,7 @@
 
 <template>
 	<header class="flex justify-between gap-2 w-full py-4 text-surface-400">
-		<a class="text-3xl font-semibold" href="#">Aubrey Koch</a>
+		<h1 class="text-3xl font-semibold" href="#">Aubrey Koch</h1>
 		<div class="flex gap-4 text-xl place-items-center">
 			<a href="#projects">Projects</a>
 			<a href="#contact">Contact</a>

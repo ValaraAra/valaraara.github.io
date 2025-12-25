@@ -13,7 +13,10 @@
 			</div>
 
 			<div class="flex flex-col w-full">
-				<h1 class="text-lg text-surface-300 font-semibold">{{ props.education.title }}</h1>
+				<h3 class="text-lg text-surface-300 font-semibold line-clamp-1">
+					<a v-if="props.education.link" class="hover:text-primary" :href="props.education.link">{{ props.education.title }}</a>
+					<span v-else>{{ props.education.title }}</span>
+				</h3>
 				<div class="flex flex-col sm:flex-row sm:justify-between sm:items-center">
 					<p class="text-surface-300">
 						{{ props.education.degree }}
