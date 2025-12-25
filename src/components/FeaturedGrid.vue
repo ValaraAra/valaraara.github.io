@@ -9,13 +9,6 @@ const projects = [
 		chips: ['C++', 'OpenGL', 'GLSL'],
 		link: 'https://github.com/ValaraAra/Practice-Engine'
 	},
-	{
-		image: '/images/work.png',
-		title: 'Oregon State University',
-		text: 'As a Web Developer for the College of Engineering, I implement new pages, features, and redesigns. This work is done with a high level of collaboration with the design and marketing teams.',
-		chips: ['JS', 'HTML/CSS', 'Bootstrap', 'Drupal', 'Azure DevOps'],
-		link: 'https://engineering.oregonstate.edu/'
-	},
 ]
 
 </script>

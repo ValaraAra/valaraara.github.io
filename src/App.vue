@@ -7,6 +7,7 @@
 	import AppBackground from './components/AppBackground.vue';
 	import EducationList from './components/EducationList.vue';
 	import FeaturedGrid from './components/FeaturedGrid.vue';
+	import WorkGrid from './components/WorkGrid.vue';
 </script>
 
 <template>
@@ -16,6 +17,7 @@
 	<main class="mb-auto flex flex-col place-items-center gap-16 my-8 w-full">
 		<ProfileCard />
 		<FeaturedGrid />
+		<WorkGrid />
 		<EducationList />
 		<ProjectGrid />
 		<ContactMe />
