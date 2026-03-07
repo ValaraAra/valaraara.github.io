@@ -11,7 +11,7 @@ const projects = [
 	},
 	{
 		image: '/images/character-manager-gallery.png',
-		alt: 'Character gallery with a search bar, filters, and a grid of character cards, each with a name, artwork, and description.',
+		alt: 'Character gallery with filters and a character card grid, each with name, artwork, and description.',
 		title: 'Character Manager',
 		text: 'Cross-platform desktop app for writers to create, edit, and manage characters. Includes in-depth character creation and management features.',
 		chips: ['Electron', 'Vue', 'Tailwind'],
@@ -25,7 +25,7 @@ const projects = [
 	},
 	{
 		image: '/images/discord-toolbox.png',
-		alt: 'Discord server list with a search bar and a grid of server cards, each with an icon, name, and stats.',
+		alt: 'Discord server list with a search bar and a server card grid, each with an icon, name, and stats.',
 		title: 'Discord Toolbox',
 		text: 'Web app that provided advanced tools for Discord users. Featured OAuth login, server analytics, Discord API status monitoring, and several utility tools.',
 		chips: ['Next', 'Tailwind'],
