@@ -4,10 +4,11 @@ import ProjectGridItem from './ProjectGridItem.vue';
 const projects = [
 	{
 		image: '/images/voxel-engine.png',
+		alt: 'Voxel terrain render of blocky hills at dusk with a glowing light source in a valley.',
 		title: 'Voxel Engine',
 		text: 'This passion project has a variety of features, including SSAO, multi-threaded terrain generation and meshing, optimized meshing using bitmasks, and more.',
 		chips: ['C++', 'OpenGL', 'GLSL'],
-		link: 'https://github.com/ValaraAra/Practice-Engine'
+		link: 'https://github.com/ValaraAra/Practice-Engine',
 	},
 ]
 

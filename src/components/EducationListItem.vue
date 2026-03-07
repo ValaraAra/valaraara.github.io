@@ -9,7 +9,7 @@
 	<div class="flex flex-col gap-1 w-full text-left">
 		<div class="flex flex-row gap-3 w-full">
 			<div class="size-20 sm:size-28 shrink-0 relative bg-surface-950 rounded-lg">
-				<img class="object-contain shrink-0 size-full scale-75" :src="props.education.image" alt="college logo" />
+				<img class="object-contain shrink-0 size-full scale-75" :src="props.education.image" :alt="props.education.alt" />
 			</div>
 
 			<div class="flex flex-col w-full">

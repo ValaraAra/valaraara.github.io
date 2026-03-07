@@ -4,6 +4,7 @@
 	const educationList = [
 		{
 			image: '/images/oregon-state-university.png',
+			alt: 'Oregon State University logo.',
 			title: 'Oregon State University',
 			degree: 'BS in Computer Science',
 			graduation: 'Expected Jun 2028',
@@ -15,6 +16,7 @@
 		},
 		{
 			image: '/images/pierce-college-logo.png',
+			alt: 'Pierce College logo.',
 			title: 'Pierce College Puyallup',
 			degree: 'Associate of Arts',
 			graduation: 'Graduated',

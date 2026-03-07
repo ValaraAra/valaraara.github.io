@@ -10,7 +10,7 @@ const props = defineProps({
 <template>
 	<div class="flex flex-col sm:flex-row gap-4 rounded-lg border border-surface-800 w-full sm:h-56 bg-surface-900 bg-opacity-70 overflow-hidden hover:scale-[1.01]">
 		<div class="sm:w-8/12 relative sm:py-3 sm:pl-3">
-			<img class="sm:rounded-lg object-cover shrink-0 size-full max-h-72 object-top" :src="props.project.image" alt="project image" />
+			<img class="sm:rounded-lg object-cover shrink-0 size-full max-h-72 object-top" :src="props.project.image" :alt="props.project.alt" />
 		</div>
 
 		<div class="flex flex-col gap-4 p-3 w-full text-left">
