@@ -3,7 +3,7 @@ import ProjectGridItem from './ProjectGridItem.vue';
 
 const projects = [
 	{
-		image: '/images/work.png',
+		image: '/images/work.webp',
 		alt: 'Oregon State University College of Engineering homepage with headline \'Engineer a better future.\'',
 		title: 'Oregon State University',
 		text: 'As a Web Developer for the College of Engineering, I implement new pages, features, and redesigns alongside our design and marketing teams. Currently project lead for accessibility.',
