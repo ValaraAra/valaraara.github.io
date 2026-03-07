@@ -5,7 +5,7 @@ const projects = [
 	{
 		image: '/images/voxel-engine.png',
 		title: 'Voxel Engine',
-		text: 'In my free time, I work on a voxel engine as my passion project. So far, it features multi-threaded world generation, basic Blinn-Phong lighting, and a custom pipeline for meshing, rendering, and more.',
+		text: 'This passion project has a variety of features, including SSAO, multi-threaded terrain generation and meshing, optimized meshing using bitmasks, and more.',
 		chips: ['C++', 'OpenGL', 'GLSL'],
 		link: 'https://github.com/ValaraAra/Practice-Engine'
 	},
