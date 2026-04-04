@@ -5,8 +5,8 @@ import { createApp } from 'vue'
 import App from './App.vue'
 
 import PrimeVue from 'primevue/config'
-import Aura from '@primevue/themes/aura'
-import { definePreset } from '@primevue/themes';
+import Aura from "@primeuix/themes/aura"
+import { definePreset } from '@primeuix/themes';
 
 const app = createApp(App)
 
