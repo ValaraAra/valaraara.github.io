@@ -7,9 +7,11 @@
 	const stars = []
 	let starCount = 200
 
-	const starDensity = 0.0001
 	const minStars = 100
 	const maxStars = 600
+	const starDensity = 0.0001
+	const genSpacingSquared = (1 / starDensity) * 0.36
+	const genAttempts = 50
 
 	const points = 4
 	const inset = 0.4
@@ -43,24 +45,50 @@
 		const area = canvas.width * canvas.height
 		const calculatedCount = Math.floor(area * starDensity)
 
-		const count = Math.max(minStars, Math.min(maxStars, calculatedCount))
+		const count = Math.max(Math.min(stars.length, minStars), Math.min(stars.length, calculatedCount))
 		console.log(`Calculated star count: ${calculatedCount}, adjusted to: ${count}`)
 
 		return count
 	}
 
+	function isStarOverlapping(x, y) {
+		for (const star of stars) {
+			const dx = star.x - x
+			const dy = star.y - y
+			const distanceSquared = dx * dx + dy * dy
+
+			if (distanceSquared < genSpacingSquared) {
+				return true
+			}
+		}
+		return false
+	}
+
 	function generateStars() {
 		const canvas = starryCanvasRef.value
-
 		stars.length = 0
+
 		for (let i = 0; i < maxStars; i++) {
-			stars.push({
-				x: Math.random() * canvas.width,
-				y: Math.random() * canvas.height,
-				speed: Math.random() * 1.5 + 0.5,
-				phase: Math.random() * Math.PI * 2
-			})
+			let x, y
+			let attempts = 0
+
+			do {
+				x = Math.random() * canvas.width
+				y = Math.random() * canvas.height
+				attempts++
+			} while (isStarOverlapping(x, y) && attempts < genAttempts)
+
+			if (attempts < genAttempts) {
+				stars.push({
+					x: x,
+					y: y,
+					speed: Math.random() * 1.5 + 0.5,
+					phase: Math.random() * Math.PI * 2
+				})
+			}
 		}
+
+		console.log(`Generated ${stars.length} stars of attempted ${maxStars}.`)
 	}
 
 	// Function adapted from Dennis S. at https://stackoverflow.com/a/45140101
@@ -114,11 +142,12 @@
 	onMounted(() => {
 		starSprite = drawStarSprite()
 
-		resizeCanvas()
-		generateStars()
-
 		context = starryCanvasRef.value.getContext('2d')
 		context.imageSmoothingEnabled = false
+
+		resizeCanvas()
+		generateStars()
+		resizeCanvas()
 
 		animationFrameID = requestAnimationFrame(animationStep)
 		window.addEventListener('resize', resizeCanvas)
