@@ -5,11 +5,15 @@
 	let animationFrameID, context, starSprite
 	
 	const stars = []
-	const starCount = 200
+	let starCount = 200
+
+	const starDensity = 0.0001
+	const minStars = 100
+	const maxStars = 600
 
 	const points = 4
-	const inset = 0.5
-	const radius = 3
+	const inset = 0.4
+	const radius = 4
 
 	function resizeCanvas() {
 		const canvas = starryCanvasRef.value
@@ -29,13 +33,27 @@
 				star.y *= heightRatio
 			}
 		}
+
+		starCount = calculateStarCount()
+	}
+
+	function calculateStarCount() {
+		const canvas = starryCanvasRef.value
+
+		const area = canvas.width * canvas.height
+		const calculatedCount = Math.floor(area * starDensity)
+
+		const count = Math.max(minStars, Math.min(maxStars, calculatedCount))
+		console.log(`Calculated star count: ${calculatedCount}, adjusted to: ${count}`)
+
+		return count
 	}
 
 	function generateStars() {
 		const canvas = starryCanvasRef.value
 
 		stars.length = 0
-		for (let i = 0; i < starCount; i++) {
+		for (let i = 0; i < maxStars; i++) {
 			stars.push({
 				x: Math.random() * canvas.width,
 				y: Math.random() * canvas.height,
@@ -82,7 +100,8 @@
 
 		const halfSize = starSprite.width / 2
 
-		for (const star of stars) {
+		for (let i = 0; i < starCount; i++) {
+			const star = stars[i]
 			const alpha = 0.5 + 0.5 * Math.sin(star.phase + (timestamp / 1000) * star.speed)
 			context.globalAlpha = alpha
 
@@ -123,5 +142,6 @@
 		height: 100%;
 		z-index: -1;
 		background: linear-gradient(to bottom, #221b35, #1d162f, #16102a, #0f0b22, #090714);
+		image-rendering: pixelated;
 	}
 </style>
