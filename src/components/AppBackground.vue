@@ -161,7 +161,7 @@
 		width: 100%;
 		height: 100%;
 		z-index: -1;
-		background: linear-gradient(to bottom, #221b35, #1d162f, #16102a, #0f0b22, #090714);
+		background: var(--bg-gradient);
 		image-rendering: pixelated;
 	}
 </style>

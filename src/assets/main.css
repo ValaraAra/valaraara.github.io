@@ -27,3 +27,34 @@
 		@apply hover:text-primary
 	}
 }
+
+:root {
+	--bg-gradient: linear-gradient(to bottom, #221b35, #1d162f, #16102a, #0f0b22, #090714);
+}
+
+.bg-island {
+	position: relative;
+
+	background: none; 
+	mask-image: none;
+	-webkit-mask-image: none;
+}
+
+.bg-island::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: -1;
+
+	background: var(--bg-gradient); 
+	background-attachment: fixed;
+
+	-webkit-mask-image: radial-gradient(ellipse, black 60%, transparent 100%);
+	mask-image: radial-gradient(ellipse, black 60%, transparent 100%);
+
+	border-radius: inherit; 
+}
+
