@@ -12,6 +12,8 @@
 	const starDensity = 0.0001
 	const genSpacingSquared = (1 / starDensity) * 0.36
 	const genAttempts = 50
+	const refWidth = 1920
+	const refHeight = 1080
 
 	const points = 4
 	const inset = 0.4
@@ -19,22 +21,9 @@
 
 	function resizeCanvas() {
 		const canvas = starryCanvasRef.value
-		
-		const oldWidth = canvas.width
-		const oldHeight = canvas.height
 
 		canvas.width = canvas.clientWidth
 		canvas.height = canvas.clientHeight
-
-		if (oldWidth && oldHeight) {
-			const widthRatio = canvas.width / oldWidth
-			const heightRatio = canvas.height / oldHeight
-
-			for (const star of stars) {
-				star.x *= widthRatio
-				star.y *= heightRatio
-			}
-		}
 
 		starCount = calculateStarCount()
 	}
@@ -65,7 +54,6 @@
 	}
 
 	function generateStars() {
-		const canvas = starryCanvasRef.value
 		stars.length = 0
 
 		for (let i = 0; i < maxStars; i++) {
@@ -73,15 +61,15 @@
 			let attempts = 0
 
 			do {
-				x = Math.random() * canvas.width
-				y = Math.random() * canvas.height
+				x = Math.random() * refWidth
+				y = Math.random() * refHeight
 				attempts++
 			} while (isStarOverlapping(x, y) && attempts < genAttempts)
 
 			if (attempts < genAttempts) {
 				stars.push({
-					x: x,
-					y: y,
+					x: x / refWidth,
+					y: y / refHeight,
 					speed: Math.random() * 1.5 + 0.5,
 					phase: Math.random() * Math.PI * 2
 				})
@@ -130,10 +118,13 @@
 
 		for (let i = 0; i < starCount; i++) {
 			const star = stars[i]
+			const x = star.x * canvas.width - halfSize
+			const y = star.y * canvas.height - halfSize
+
 			const alpha = 0.5 + 0.5 * Math.sin(star.phase + (timestamp / 1000) * star.speed)
 			context.globalAlpha = alpha
 
-			context.drawImage(starSprite, star.x - halfSize, star.y - halfSize)
+			context.drawImage(starSprite, x, y)
 		}
 
 		animationFrameID = requestAnimationFrame(animationStep)
