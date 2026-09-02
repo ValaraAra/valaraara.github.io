@@ -14,6 +14,9 @@
 	const starDensity = 0.0001
 	const genSpacingSquared = (1 / starDensity) * 0.36
 	const genAttempts = 50
+	const targetFps = 12
+	const frameInterval = 1000 / targetFps
+	let lastFrameTimestamp = 0
 	const maxBackingWidth = 3840
 	const maxBackingHeight = 2160
 	let backingScale = 1
@@ -136,6 +139,12 @@
 	}
 
 	function animationStep(timestamp) {
+		if (timestamp - lastFrameTimestamp < frameInterval) {
+			animationFrameID = requestAnimationFrame(animationStep)
+			return
+		}
+		lastFrameTimestamp = timestamp
+
 		context.clearRect(0, 0, canvasWidth, canvasHeight)
 
 		const halfSize = starSprite.width / backingScale / 2
