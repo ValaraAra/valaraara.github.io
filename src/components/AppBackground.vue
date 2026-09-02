@@ -2,7 +2,9 @@
 	import { ref, onMounted, onUnmounted } from 'vue'
 	
 	const starryCanvasRef = ref(null)
-	let animationFrameID, context, starSprite
+	let animationFrameID, resizeFrameID, context, starSprite
+	let canvasWidth = 0
+	let canvasHeight = 0
 	
 	const stars = []
 	let starCount = 200
@@ -12,30 +14,52 @@
 	const starDensity = 0.0001
 	const genSpacingSquared = (1 / starDensity) * 0.36
 	const genAttempts = 50
+	const maxBackingWidth = 3840
+	const maxBackingHeight = 2160
+	let backingScale = 1
 	const refWidth = 1920
 	const refHeight = 1080
 
 	const points = 4
 	const inset = 0.4
-	const radius = 4
+	const radius = 3
 
 	function resizeCanvas() {
 		const canvas = starryCanvasRef.value
+		canvasWidth = canvas.clientWidth
+		canvasHeight = canvas.clientHeight
+		const deviceScale = window.devicePixelRatio || 1
+		const nextBackingScale = Math.min(
+			deviceScale,
+			maxBackingWidth / canvasWidth,
+			maxBackingHeight / canvasHeight
+		)
 
-		canvas.width = canvas.clientWidth
-		canvas.height = canvas.clientHeight
+		if (starSprite && nextBackingScale !== backingScale) {
+			backingScale = nextBackingScale
+			starSprite = drawStarSprite()
+		} else {
+			backingScale = nextBackingScale
+		}
 
-		starCount = calculateStarCount()
+		canvas.width = Math.round(canvasWidth * backingScale)
+		canvas.height = Math.round(canvasHeight * backingScale)
+		context.setTransform(backingScale, 0, 0, backingScale, 0, 0)
+		context.imageSmoothingEnabled = false
+
+		starCount = calculateStarCount(canvasWidth, canvasHeight)
 	}
 
-	function calculateStarCount() {
-		const canvas = starryCanvasRef.value
+	function scheduleResize() {
+		cancelAnimationFrame(resizeFrameID)
+		resizeFrameID = requestAnimationFrame(resizeCanvas)
+	}
 
-		const area = canvas.width * canvas.height
+	function calculateStarCount(width, height) {
+		const area = width * height
 		const calculatedCount = Math.floor(area * starDensity)
 
 		const count = Math.max(Math.min(stars.length, minStars), Math.min(stars.length, calculatedCount))
-		console.log(`Calculated star count: ${calculatedCount}, adjusted to: ${count}`)
 
 		return count
 	}
@@ -99,32 +123,38 @@
 	function drawStarSprite() {
 		const spriteCanvas = document.createElement('canvas')
 
-		const size = radius * 2 + 2
+		const size = (radius * 2 + 2) * backingScale
 		spriteCanvas.width = size
 		spriteCanvas.height = size
 
 		const spriteContext = spriteCanvas.getContext('2d')
 		spriteContext.fillStyle = 'white'
-		drawStar(spriteContext, size / 2, size / 2)
+		spriteContext.setTransform(backingScale, 0, 0, backingScale, 0, 0)
+		drawStar(spriteContext, size / backingScale / 2, size / backingScale / 2)
 
 		return spriteCanvas
 	}
 
 	function animationStep(timestamp) {
-		const canvas = starryCanvasRef.value
-		context.clearRect(0, 0, canvas.width, canvas.height)
+		context.clearRect(0, 0, canvasWidth, canvasHeight)
 
-		const halfSize = starSprite.width / 2
+		const halfSize = starSprite.width / backingScale / 2
 
 		for (let i = 0; i < starCount; i++) {
 			const star = stars[i]
-			const x = star.x * canvas.width - halfSize
-			const y = star.y * canvas.height - halfSize
+			const x = star.x * canvasWidth - halfSize
+			const y = star.y * canvasHeight - halfSize
 
 			const alpha = 0.5 + 0.5 * Math.sin(star.phase + (timestamp / 1000) * star.speed)
 			context.globalAlpha = alpha
 
-			context.drawImage(starSprite, x, y)
+			context.drawImage(
+				starSprite,
+				x,
+				y,
+				starSprite.width / backingScale,
+				starSprite.height / backingScale
+			)
 		}
 
 		animationFrameID = requestAnimationFrame(animationStep)
@@ -141,12 +171,13 @@
 		resizeCanvas()
 
 		animationFrameID = requestAnimationFrame(animationStep)
-		window.addEventListener('resize', resizeCanvas)
+		window.addEventListener('resize', scheduleResize)
 	})
 
 	onUnmounted(() => {
 		cancelAnimationFrame(animationFrameID)
-		window.removeEventListener('resize', resizeCanvas)
+		cancelAnimationFrame(resizeFrameID)
+		window.removeEventListener('resize', scheduleResize)
 	})
 </script>
 
