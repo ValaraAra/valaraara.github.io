@@ -9,7 +9,7 @@
 			degree: 'BS in Computer Science',
 			graduation: 'Expected Jun 2028',
 			bullets: [
-				'Cumulative 3.6 GPA and 4.0 OSU GPA',
+				'Cumulative 3.7 GPA and 4.0 OSU GPA',
 				'Achieved a 4.0 in all CS courses taken',
 			],
 			link: 'https://oregonstate.edu/'
