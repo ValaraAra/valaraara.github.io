@@ -1,4 +1,4 @@
-const plugin = require('tailwindcss/plugin');
+import primeui from 'tailwindcss-primeui'
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -11,7 +11,7 @@ export default {
 		extend: {},
 	},
 	plugins: [
-		require('tailwindcss-primeui'),
+		primeui
 	],
 }
 
