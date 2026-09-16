@@ -12,9 +12,9 @@ const projects = [
 	},
 	{
 		image: '/images/voxel-engine.webp',
-		alt: 'Voxel terrain render of blocky hills at dusk with a glowing light source in a valley.',
+		alt: 'Rendered voxel terrain with trees and lakes at dusk.',
 		title: 'Systems & Rendering',
-		text: 'Engine architecture and real-time rendering projects, covering systems design, multi-threaded processing, and GPU-driven graphics programming.',
+		text: 'Engine architecture and real-time rendering projects, focused on multithreading, SIMD, and GPU-driven rendering.',
 		chips: ['C++', 'Vulkan', 'OpenGL'],
 		link: '/engine',
 	},
