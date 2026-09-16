@@ -1,8 +1,8 @@
 <script setup>
-	import ProfileCard from '@/components/ProfileCard.vue';
+	import ProfileBlock from '@/components/ProfileBlock.vue';
 	import CardGrid from '@/components/CardGrid.vue';
 
-	const profileCard = {
+	const profileInfo = {
 		image: '/images/profile.webp',
 		alt: 'Aubrey Koch.',
 		intro: 'Hi, I\'m Aubrey!',
@@ -48,7 +48,7 @@
 </script>
 
 <template>
-	<ProfileCard v-bind="profileCard" />
+	<ProfileBlock v-bind="profileInfo" />
 	<CardGrid id="focus-areas" title="Focus Areas" :cards="focusCards" />
 	<CardGrid id="more-about-me" title="More About Me" :cards="moreCards" />
 </template>
