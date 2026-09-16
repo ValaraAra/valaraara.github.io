@@ -18,8 +18,8 @@
 	const maxBackingWidth = 3840
 	const maxBackingHeight = 2160
 	let backingScale = 1
-	const refWidth = 1920
-	const refHeight = 1080
+	const fieldWidth = 1920
+	const fieldHeight = 1080
 
 	const points = 4
 	const inset = 0.4
@@ -48,8 +48,7 @@
 		context.setTransform(backingScale, 0, 0, backingScale, 0, 0)
 		context.imageSmoothingEnabled = false
 
-
-		if (prefersReducedMotion && !document.hidden) {
+		if (!document.hidden) {
 			drawFrame(performance.now())
 		}
 	}
@@ -61,8 +60,16 @@
 
 	function isStarOverlapping(x, y) {
 		for (const star of stars) {
-			const dx = star.x - x
-			const dy = star.y - y
+			let dx = Math.abs(star.x - x)
+			let dy = Math.abs(star.y - y)
+
+			if (dx > fieldWidth / 2) {
+				dx = fieldWidth - dx
+			}
+			if (dy > fieldHeight / 2) {
+				dy = fieldHeight - dy
+			}
+
 			const distanceSquared = dx * dx + dy * dy
 
 			if (distanceSquared < genSpacingSquared) {
@@ -78,8 +85,8 @@
 		let consecutiveMisses = 0
 
 		while (consecutiveMisses < genAttempts) {
-			const x = Math.random() * refWidth
-			const y = Math.random() * refHeight
+			const x = Math.random() * fieldWidth
+			const y = Math.random() * fieldHeight
 
 			if (isStarOverlapping(x, y)) {
 				consecutiveMisses++
@@ -131,23 +138,37 @@
 	function drawFrame(timestamp) {
 		context.clearRect(0, 0, canvasWidth, canvasHeight)
 
-		const halfSize = starSprite.width / backingScale / 2
+		const spriteSize = starSprite.width / backingScale
+		const halfSize = spriteSize / 2
+
+		const tilesX = Math.ceil(canvasWidth / fieldWidth) + 1
+		const tilesY = Math.ceil(canvasHeight / fieldHeight) + 1
+		const originX = (canvasWidth - tilesX * fieldWidth) / 2
+		const originY = (canvasHeight - tilesY * fieldHeight) / 2
 
 		for (let i = 0; i < stars.length; i++) {
 			const star = stars[i]
-			const x = (star.x / refWidth) * canvasWidth - halfSize
-			const y = (star.y / refHeight) * canvasHeight - halfSize
 
 			const alpha = 0.5 + 0.5 * Math.sin(star.phase + (timestamp / 1000) * star.speed)
 			context.globalAlpha = alpha
 
-			context.drawImage(
-				starSprite,
-				x,
-				y,
-				starSprite.width / backingScale,
-				starSprite.height / backingScale
-			)
+			for (let tileY = 0; tileY < tilesY; tileY++) {
+				const y = originY + tileY * fieldHeight + star.y - halfSize
+
+				if (y < -spriteSize || y > canvasHeight) {
+					continue
+				}
+
+				for (let tileX = 0; tileX < tilesX; tileX++) {
+					const x = originX + tileX * fieldWidth + star.x - halfSize
+
+					if (x < -spriteSize || x > canvasWidth) {
+						continue
+					}
+
+					context.drawImage(starSprite, x, y, spriteSize, spriteSize)
+				}
+			}
 		}
 	}
 
