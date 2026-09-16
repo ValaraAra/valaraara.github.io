@@ -1,11 +1,12 @@
 <script setup>
-import Chip from 'primevue/chip';
+	import Chip from 'primevue/chip';
+	import SmartLink from './SmartLink.vue';
 
-const props = defineProps({
-	card: Object
-})
+	const props = defineProps({
+		card: Object
+	})
 
-const linkClass = "group-hover:text-primary focus-visible:outline-none after:absolute after:inset-0"
+	const linkClass = "group-hover:text-primary focus-visible:outline-none after:absolute after:inset-0"
 
 </script>
 
@@ -17,8 +18,7 @@ const linkClass = "group-hover:text-primary focus-visible:outline-none after:abs
 
 		<div class="flex flex-col gap-4 p-3 w-full text-left">
 			<h3 class="text-2xl text-surface-300 font-semibold line-clamp-1">
-				<RouterLink v-if="props.card.link && props.card.link.startsWith('/')" :class="linkClass" :to="props.card.link">{{ props.card.title }}</RouterLink>
-				<a v-else-if="props.card.link" :class="linkClass" :href="props.card.link">{{ props.card.title }}</a>
+				<SmartLink v-if="props.card.link" :class="linkClass" :to="props.card.link">{{ props.card.title }}</SmartLink>
 				<span v-else>{{ props.card.title }}</span>
 			</h3>
 			<div v-if="props.card.chips" class="flex gap-2 flex-wrap">

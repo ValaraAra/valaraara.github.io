@@ -1,4 +1,6 @@
 <script setup>
+	import SmartLink from './SmartLink.vue';
+
 	const props = defineProps({
 		education: Object
 	})
@@ -14,7 +16,7 @@
 
 			<div class="flex flex-col w-full">
 				<h3 class="text-lg text-surface-300 font-semibold line-clamp-1">
-					<a v-if="props.education.link" class="hover:text-primary" :href="props.education.link">{{ props.education.title }}</a>
+					<SmartLink v-if="props.education.link" class="hover:text-primary" :to="props.education.link">{{ props.education.title }}</SmartLink>
 					<span v-else>{{ props.education.title }}</span>
 				</h3>
 				<div class="flex flex-col sm:flex-row sm:justify-between sm:items-center">

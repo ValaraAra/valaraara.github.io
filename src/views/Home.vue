@@ -1,7 +1,6 @@
 <script setup>
 	import ProfileCard from '@/components/ProfileCard.vue';
 	import CardGrid from '@/components/CardGrid.vue';
-	import EducationList from '@/components/EducationList.vue';
 
 	const profileCard = {
 		image: '/images/profile.webp',
