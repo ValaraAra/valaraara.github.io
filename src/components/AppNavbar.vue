@@ -9,7 +9,7 @@
 		</h1>
 		<div class="flex gap-4 text-xl place-items-center">
 			<RouterLink to="/web">Web</RouterLink>
-			<RouterLink to="/engine">Systems & Rendering</RouterLink>
+			<RouterLink to="/engine">Engine & Graphics</RouterLink>
 			<RouterLink to="/education">Education</RouterLink>
 			<RouterLink to="/about">About</RouterLink>
 		</div>
