@@ -3,16 +3,14 @@
 	
 	const starryCanvasRef = ref(null)
 	let animationFrameID, resizeFrameID, context, starSprite
+	let reducedMotionQuery, prefersReducedMotion = false
 	let canvasWidth = 0
 	let canvasHeight = 0
 	
 	const stars = []
-	let starCount = 200
 
-	const minStars = 100
-	const maxStars = 600
-	const starDensity = 0.0001
-	const genSpacingSquared = (1 / starDensity) * 0.36
+	const genSpacing = 60
+	const genSpacingSquared = genSpacing * genSpacing
 	const genAttempts = 50
 	const targetFps = 12
 	const frameInterval = 1000 / targetFps
@@ -50,21 +48,15 @@
 		context.setTransform(backingScale, 0, 0, backingScale, 0, 0)
 		context.imageSmoothingEnabled = false
 
-		starCount = calculateStarCount(canvasWidth, canvasHeight)
+
+		if (prefersReducedMotion && !document.hidden) {
+			drawFrame(performance.now())
+		}
 	}
 
 	function scheduleResize() {
 		cancelAnimationFrame(resizeFrameID)
 		resizeFrameID = requestAnimationFrame(resizeCanvas)
-	}
-
-	function calculateStarCount(width, height) {
-		const area = width * height
-		const calculatedCount = Math.floor(area * starDensity)
-
-		const count = Math.max(Math.min(stars.length, minStars), Math.min(stars.length, calculatedCount))
-
-		return count
 	}
 
 	function isStarOverlapping(x, y) {
@@ -83,27 +75,25 @@
 	function generateStars() {
 		stars.length = 0
 
-		for (let i = 0; i < maxStars; i++) {
-			let x, y
-			let attempts = 0
+		let consecutiveMisses = 0
 
-			do {
-				x = Math.random() * refWidth
-				y = Math.random() * refHeight
-				attempts++
-			} while (isStarOverlapping(x, y) && attempts < genAttempts)
+		while (consecutiveMisses < genAttempts) {
+			const x = Math.random() * refWidth
+			const y = Math.random() * refHeight
 
-			if (attempts < genAttempts) {
-				stars.push({
-					x: x / refWidth,
-					y: y / refHeight,
-					speed: Math.random() * 1.5 + 0.5,
-					phase: Math.random() * Math.PI * 2
-				})
+			if (isStarOverlapping(x, y)) {
+				consecutiveMisses++
+				continue
 			}
-		}
 
-		console.log(`Generated ${stars.length} stars of attempted ${maxStars}.`)
+			stars.push({
+				x,
+				y,
+				speed: Math.random() * 1.5 + 0.5,
+				phase: Math.random() * Math.PI * 2
+			})
+			consecutiveMisses = 0
+		}
 	}
 
 	// Function adapted from Dennis S. at https://stackoverflow.com/a/45140101
@@ -138,21 +128,15 @@
 		return spriteCanvas
 	}
 
-	function animationStep(timestamp) {
-		if (timestamp - lastFrameTimestamp < frameInterval) {
-			animationFrameID = requestAnimationFrame(animationStep)
-			return
-		}
-		lastFrameTimestamp = timestamp
-
+	function drawFrame(timestamp) {
 		context.clearRect(0, 0, canvasWidth, canvasHeight)
 
 		const halfSize = starSprite.width / backingScale / 2
 
-		for (let i = 0; i < starCount; i++) {
+		for (let i = 0; i < stars.length; i++) {
 			const star = stars[i]
-			const x = star.x * canvasWidth - halfSize
-			const y = star.y * canvasHeight - halfSize
+			const x = (star.x / refWidth) * canvasWidth - halfSize
+			const y = (star.y / refHeight) * canvasHeight - halfSize
 
 			const alpha = 0.5 + 0.5 * Math.sin(star.phase + (timestamp / 1000) * star.speed)
 			context.globalAlpha = alpha
@@ -165,28 +149,87 @@
 				starSprite.height / backingScale
 			)
 		}
+	}
+
+	function animationStep(timestamp) {
+		if (document.hidden || prefersReducedMotion) {
+			animationFrameID = null
+			return
+		}
+
+		if (timestamp - lastFrameTimestamp < frameInterval) {
+			animationFrameID = requestAnimationFrame(animationStep)
+			return
+		}
+		lastFrameTimestamp = timestamp
+		drawFrame(timestamp)
 
 		animationFrameID = requestAnimationFrame(animationStep)
 	}
 
+	function startAnimation() {
+		if (document.hidden || prefersReducedMotion || animationFrameID !== null) {
+			return
+		}
+
+		lastFrameTimestamp = 0
+		animationFrameID = requestAnimationFrame(animationStep)
+	}
+
+	function handleVisibilityChange() {
+		if (document.hidden) {
+			cancelAnimationFrame(animationFrameID)
+			animationFrameID = null
+			return
+		}
+
+		if (prefersReducedMotion) {
+			drawFrame(performance.now())
+			return
+		}
+
+		startAnimation()
+	}
+
+	function handleReducedMotionChange(event) {
+		prefersReducedMotion = event.matches
+		cancelAnimationFrame(animationFrameID)
+		animationFrameID = null
+
+		if (prefersReducedMotion) {
+			if (!document.hidden) {
+				drawFrame(performance.now())
+			}
+			return
+		}
+
+		startAnimation()
+	}
+
 	onMounted(() => {
+		reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
+		prefersReducedMotion = reducedMotionQuery.matches
 		starSprite = drawStarSprite()
 
 		context = starryCanvasRef.value.getContext('2d')
 		context.imageSmoothingEnabled = false
 
-		resizeCanvas()
 		generateStars()
 		resizeCanvas()
 
-		animationFrameID = requestAnimationFrame(animationStep)
+		animationFrameID = null
+		startAnimation()
 		window.addEventListener('resize', scheduleResize)
+		document.addEventListener('visibilitychange', handleVisibilityChange)
+		reducedMotionQuery.addEventListener('change', handleReducedMotionChange)
 	})
 
 	onUnmounted(() => {
 		cancelAnimationFrame(animationFrameID)
 		cancelAnimationFrame(resizeFrameID)
 		window.removeEventListener('resize', scheduleResize)
+		document.removeEventListener('visibilitychange', handleVisibilityChange)
+		reducedMotionQuery.removeEventListener('change', handleReducedMotionChange)
 	})
 </script>
 
