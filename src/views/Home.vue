@@ -41,7 +41,7 @@
 			image: '/images/ash.webp',
 			alt: 'Brown and white cat with long hair posing on a desk framed by sunlight.',
 			title: 'About',
-			text: 'Whenever I\'m not working on a project, I\'m usually relaxing with my two cats, reading a good book. I also love games, which is why I got into building my own game engine.',
+			text: 'Whenever I\'m not working on a project, I\'m usually relaxing with my two cats, reading a good book. I also love games. Games like World of Warcraft and Cube World are what got me interested in building my own game engine.',
 			link: '/about',
 		},
 	]
