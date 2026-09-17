@@ -12,7 +12,7 @@
 </script>
 
 <template>
-	<div class="flex flex-col items-center text-center md:flex-row md:items-start gap-8 justify-start mt-12 py-2 w-full bg-island">
+	<div class="flex flex-col items-center text-center md:flex-row md:items-start gap-8 justify-start mt-12 py-2 w-full">
 		<Avatar class="border-4 border-primary" style="--p-avatar-xl-width: 8rem; --p-avatar-xl-height: 8rem; aspect-ratio: 1/1;" :image="image" shape="circle" size="xlarge" :ariaLabel="alt" />
 		<div class="flex flex-col items-center md:items-start gap-5 text-center md:text-left">
 			<p class="text-3xl text-surface-400">
