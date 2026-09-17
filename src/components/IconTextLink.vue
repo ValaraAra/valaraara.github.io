@@ -1,5 +1,5 @@
 <script setup>
-import { twJoin } from 'tailwind-merge';
+import { twMerge } from 'tailwind-merge';
 
 
 const props = defineProps({
@@ -12,8 +12,8 @@ const props = defineProps({
 </script>
 
 <template>
-	<a :class="twJoin('inline-flex gap-2 w-fit items-center text-center text-lg text-surface-300 hover:text-primary', props.class)" :href="props.href" rel="noopener noreferrer">
-		<span v-if="icon" :class="twJoin('pi', props.icon)" />
+	<a :class="twMerge('inline-flex gap-2 w-fit items-center text-center text-lg text-surface-300 hover:text-primary', props.class)" :href="props.href" rel="noopener noreferrer">
+		<span v-if="icon" :class="twMerge('pi', props.icon)" />
 		{{ props.text }}
 	</a>
 </template>
