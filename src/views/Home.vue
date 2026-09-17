@@ -31,17 +31,17 @@
 
 	const moreCards = [
 		{
-			image: '/images/osu.jpg',
-			alt: 'OSU campus from an aeriel view.',
+			image: '/images/osu-campus.jpg',
+			alt: 'OSU campus from an aerial view.',
 			title: 'Education',
-			text: 'Working towards my Bachelor degree in Computer Science as a Junior at Oregon State University. Solid 4.0 institutional GPA, with 3.75 GPA overall. Currently working in the OSU graphics lab alongside Dr. Yue Zhang on an independent graphics project.',
+			text: 'Working towards my Bachelor\'s degree in Computer Science as a Junior at Oregon State University. Solid 4.0 institutional GPA, with 3.75 GPA overall. Currently working in the OSU graphics lab alongside Dr. Yue Zhang on an independent graphics project.',
 			link: '/education',
 		},
 		{
 			image: '/images/ash.webp',
 			alt: 'Brown and white cat with long hair posing on a desk framed by sunlight.',
 			title: 'About',
-			text: 'Very passionate about games. Whenever I\'m not working on a project, I\'m likely relaxing beside my two cats, reading a good book.',
+			text: 'Whenever I\'m not working on a project, I\'m usually relaxing with my two cats, reading a good book. I also love games, which is why I got into building my own game engine.',
 			link: '/about',
 		},
 	]
