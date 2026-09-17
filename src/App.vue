@@ -8,7 +8,7 @@
 	<AppBackground />
 	<AppNavbar />
 
-	<main class="mb-auto flex flex-col place-items-center gap-16 my-8 w-full">
+	<main class="mb-auto flex flex-col place-items-center gap-16 w-full">
 		<RouterView />
 	</main>
 

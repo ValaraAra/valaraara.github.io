@@ -1,11 +1,11 @@
 <script setup>
 	import { computed } from 'vue'
 
-	const props = defineProps({
+	const { to } = defineProps({
 		to: { type: String, required: true }
 	})
 
-	const isInternal = computed(() => props.to.startsWith('/'))
+	const isInternal = computed(() => to.startsWith('/'))
 </script>
 
 <template>

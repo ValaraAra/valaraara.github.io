@@ -23,6 +23,28 @@
 	html {
 		scroll-behavior: smooth;
 	}
+
+	:where(
+		a,
+		button,
+		[role="button"],
+		input,
+		select,
+		textarea,
+		[tabindex]:not([tabindex="-1"])
+	):focus-visible,
+	.focus-ring:focus-visible {
+		@apply outline-none ring-2 ring-primary rounded-sm;
+	}
+
+	.focus-ring-none:focus-visible {
+		@apply outline-none ring-0;
+	}
+
+	.focus-ring-parent:has(:focus-visible) {
+		@apply ring-2 ring-primary;
+	}
+
 	a {
 		@apply hover:text-primary
 	}
